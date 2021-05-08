@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sobre o escopo var e let</title>
+
+		<script>
+			//3 escopos: global, função  e bloco
+			//var --> sofre sobreposição
+			//let --> só existe dentro da execução do bloco
+			var serie = 'Friends'
+			{
+				let serie = 'Flash'
+				console.log('dentro ' + serie) 
+			}
+			console.log(serie)
+		</script>
+
+	</head>
+	<body>
+
+	</body>
+</html>

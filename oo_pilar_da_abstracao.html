@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>OO-abstração</title>
+		<meta charset="utf-8">
+
+		<script>
+			/*
+			 class ContaBancaria {
+			 	//agencia
+			 	//numeroConta
+			 	//saldo
+			 	//limite
+
+			 	constructor() {
+
+			 		this.agencia = 1075
+			 		this.numeroConta = 8351125
+			 		this.saldo = 50
+			 		this.limite = 450
+			 	}
+
+			 	depositar(valorDeposito) {
+			 		this.saldo += valorDeposito
+			 	}
+
+			 	sacar(valorSaque) {
+			 		this.saldo -= valorSaque
+			 	}
+
+			 	consultarSaldo() {
+			 		return this.saldo
+			 	}
+			 }
+
+			 let x = new ContaBancaria()
+			 let y = new ContaBancaria()
+
+			 console.log(x.consultarSaldo())
+			 x.depositar(450)
+			 console.log(x.consultarSaldo())
+			 x.sacar(200)
+			 console.log(x.consultarSaldo())
+			
+
+			 //paradigma procedural
+			 //um software de marcenaria
+			 //cadeira e sofa
+
+			 //cadeira
+			 let qtd_pernas = 4
+			 let giratoria = false
+			 let cor = 'azul'
+
+			 //array de cadeiras
+			 let cadeiras = Array()
+
+			 cadeiras[0] = Array()
+			 cadeiras[0]['qtd_pernas'] = 4
+			 cadeiras[0]['giratoria'] = false
+			 cadeiras[0]['cor'] = 'azul'
+
+			 cadeiras[1] = Array()
+			 cadeiras[1]['qtd_pernas'] = 1
+			 cadeiras[1]['giratoria'] = true
+			 cadeiras[1]['cor'] = 'vermelha'
+
+			 function girar_cadeira(indice) {
+			 	if(cadeiras[indice]['giratoria'] === true) {
+			 		console.log('girou')
+			 	}else {
+			 		console.log('a cadeira não é giradoria')
+			 	}
+			 }
+
+			 function adicionar_cadeira(qtd_pernas, giratoria, cor) {
+			 	let cadeira = Array()
+			 	cadeira['qtd_pernas'] = qtd_pernas
+			 	cadeira['giratoria'] = giratoria
+			 	cadeira['cor'] = cor
+
+			 	cadeiras.push(cadeira)
+			 }
+
+			 adicionar_cadeira(3, false, 'verde')
+
+			 console.log(cadeiras)
+
+			 girar_cadeira(1)
+			*/
+
+			 //paradigma de OO
+			 class Cadeira {
+			 	constructor(qtd_pernas, giratoria, cor) {
+			 		this.qtd_pernas = qtd_pernas
+			 		this.giratoria = giratoria
+			 		this.cor = cor
+			 	}
+
+			 	girarCadeira() {
+			 		if(this.giratoria === true) {
+			 			console.log('girou')
+			 		}else {
+			 			console.log('a cadeira não é giradoria')
+			 		}
+			 	}
+			 }
+
+			 let cadeira = new Cadeira(4, false, 'azul')
+			 console.log(cadeira)
+			 cadeira.girarCadeira()
+
+			 //sofá = cor/qntLugares/reclinavel
+
+			 class Sofa {
+			 	constructor(reclinavel) {
+			 		this.reclinavel = reclinavel
+			 	}
+			 	/*
+			 	sofaReclinavel() {
+			 		if(this.reclinavel === true) {
+			 			console.log('Reclinavel')
+			 		}else {
+			 			console.log('Não reclinavel')
+			 		}
+			 	}
+				*/
+			 	sofaReclinavel = (reclinavel) => this.reclinavel === true ? 'sofá reclinavel' : 'Não reclinavel'
+
+			 }
+
+			 //let sofa = new Sofa('vermelho', 2, true)
+			 //console.log(sofa)
+			 let x = new Sofa()
+			 x.reclinavel = true
+			 document.write(x.sofaReclinavel())
+
+		</script>
+
+	</head>
+	<body>
+
+	</body>
+</html>

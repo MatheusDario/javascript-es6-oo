@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>OO - Encapsulamento</title>
+		<meta charset="utf-8">
+
+		<script>
+			
+			class Tv {
+				constructor() {
+					this.relacaoCanais = Array(2, 4, 5, 7, 10)
+					this.canalAtivo = 5
+					this.volume = 5
+				}
+			}
+
+			//getters setters
+			
+			let tv = new Tv()
+			tv.canalAtivo = 7
+			console.log(tv.canalAtivo)
+		</script>
+
+	</head>
+	<body>
+
+	</body>
+</html>

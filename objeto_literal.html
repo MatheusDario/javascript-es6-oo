@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Functions</title>
+        <meta charset="utf-8">
+
+		<script>
+            
+            class Produto {
+                constructor(descricao, preco) {
+                    this.descricao = descricao
+                    this.preco = preco
+                }
+
+                verDescricao() {
+                    console.log(`${this.descricao} por apenas ${this.preco}`)
+                }
+            }
+            //Notação de Classe (ES6)
+            let produto = new Produto('Notbook', 2200)
+            produto.verDescricao()
+
+            //Notação de Objeto Litral / Estático 
+            let produtoLiteral = {
+                descricao: 'Geladeira',
+                preco: 1800,
+                verDescricao: function() {
+                    console.log(`${this.descricao} por apenas ${this.preco}`)
+                }
+            }
+            produtoLiteral.verDescricao()
+            
+		</script>
+
+	</head>
+	<body>
+
+	</body>
+</html>

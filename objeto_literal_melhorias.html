@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Functions</title>
+        <meta charset="utf-8">
+
+		<script>
+            
+           let nome = 'matheus'
+           let idade = 23
+           let sexo = 'Masculino'
+           let profissao = 'Programador'
+
+           let obejto = {
+               nome: nome,
+               idade: idade,
+               sexo: sexo,
+               profissao: profissao,
+               exibirResumo() {
+                   console.log(`${this.nome}, ${this.idade} anos, ${this.sexo} é, ${this.profissao}`)
+               }
+           }
+           console.log(obejto)
+           obejto.exibirResumo()
+
+           let obejto2 = {
+               nome, // nome = nome variável / valor = valor da variável
+               idade,
+               sexo,
+               profissao,
+               exibirResumo() {
+                   console.log(`${this.nome}, ${this.idade} anos, ${this.sexo} é, ${this.profissao}`)
+               }
+           }
+
+           console.log(obejto2)
+           obejto2.exibirResumo()
+           obejto2.nome = 'Matheus Dario'
+           console.log(obejto2)
+
+            
+		</script>
+
+	</head>
+	<body>
+
+	</body>
+</html>

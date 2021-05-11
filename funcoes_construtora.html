@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>OO - JavaScript</title>
+		<meta charset="utf-8">
+
+		<script>
+			
+			let Carro = function () {
+				this.cor = 'amarelo'
+				this.modelo ='Chevette'
+				this.velocidadeAtual = 0
+				this.velocidadeMaxima = 180
+
+				this.acelerar = () => {
+					//this.velocidadeAtual += 10
+
+					let velocidade = this.getVelocidadeAtual() + 10
+					this.setVelocidadeAtual(velocidade)
+				}
+
+				this.getVelocidadeAtual = function () {
+					return this.velocidadeAtual
+				}
+
+				this.setVelocidadeAtual = function (velocidadeAtual) {
+					this.velocidadeAtual = velocidadeAtual	
+				}
+			}
+
+			let carro = new Carro()
+
+			console.log(`A velocidade atual é ${carro.getVelocidadeAtual()}`)
+			carro.acelerar()
+			carro.acelerar()
+			carro.acelerar()
+			console.log(`A velocidade atual é ${carro.getVelocidadeAtual()}`) 
+			
+		</script>
+
+	</head>
+	<body>
+
+	</body>
+</html>

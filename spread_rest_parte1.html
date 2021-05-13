@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>OO - JavaScript</title>
+		<meta charset="utf-8">
+
+		<script>
+			
+			//contexto spreed
+			//string
+			let tituloArtigo = 'Como utilizar o operador rest/spreed'
+
+			console.log(tituloArtigo)
+			console.log(...tituloArtigo)
+			console.log([...tituloArtigo])
+
+			//arrays
+			let listaCusos1 = ['NodeJS e MongDB', 'ES60, TypeScript e Angular 4']
+			let listaCusos2 = ['Multiplataforma Android/IOS', 'Introdução ao GNU/Linux']
+			let listaCusosCompleto = ['web completo', 'Android completo', ...listaCusos1, ...listaCusos2]
+			console.log(listaCusosCompleto)
+
+			//objetos 
+			let pessoa = {nome: 'João', idade: 27}
+			let clone = { endereço: 'Rua Abc', ...pessoa}
+
+			console.log(clone)
+
+		</script>
+
+	</head>
+	<body>
+
+	</body>
+</html>

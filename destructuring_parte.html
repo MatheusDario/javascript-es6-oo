@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>OO - JavaScript</title>
+		<meta charset="utf-8">
+
+		<script>
+			
+		//destructuring o token para string é => [] e para objeto => {} parte ''
+        let frutas = ['abacaxi', 'uva', 'pera', 'mamão']
+
+        // let [a, b, , c] = frutas => pular um indice
+        let [a, b, c, d, e = 'banana'] = frutas //definir parametros defoult
+        //console.log(a, b, c, d, e)
+
+        let coisas = [['abacaxi', 'uva', 'pera', 'mamão'], ['jose', 'maria']]
+        let [[, , n1], [, n2]] = coisas 
+        //console.log(n1, n2)
+
+        //destructuring para objeto parte 2
+        let produto = {
+            descricao: 'Notebook',
+            preco: 1800,
+            detalhes: {
+                fabricante:'abc',
+                modelo: 'xyz'
+            }
+        }
+
+        //let {descricao, preco} = produto
+        let {detalhes:{fabricante: f, modelo: m} } = produto
+        //console.log(f, m)
+
+        //destructuring parte 3
+        let arr = [10, 20 ,30, 40]
+
+        function teste([a, b]) {
+            //console.log(a, b)
+        }
+
+        teste(arr)
+
+        let obj = {
+            a: 10,
+            b: 20,
+            c: 30,
+            d: 40
+        }
+
+        function teste({a, c, b}) {
+            console.log(a, c, b) 
+        }
+
+        teste(obj)
+
+        //destructuring parte 4
+
+        let arr2 = [10, 20 ,30, 40]
+
+        let = [a, ...resto] = arr
+
+        console.log(a)
+        console.log(resto)
+
+        let obj2 = {
+            x: 10,
+            b: 20,
+            c: 30,
+            d: 40
+        }
+
+        let { x, ...z} = obj2
+        console.log(x)
+        console.log(z)
+
+			
+			
+			
+
+
+
+		</script>
+
+	</head>
+	<body>
+
+	</body>
+</html>

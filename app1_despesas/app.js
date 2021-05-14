@@ -64,6 +64,44 @@ class Bd {
 
         return (despesas)
     }
+
+    pesquisar(despesa) {
+        let despesasFiltradas = Array()
+        despesasFiltradas = this.recuperarTodosRegistros()
+
+        if(despesa.ano != '') {
+            console.log('filtro de ano')
+            despesasFiltradas = despesasFiltradas.filter(d => d.ano == despesa.ano)
+        }
+
+        if(despesa.mes != '') {
+            console.log('filtro de mes')
+            despesasFiltradas = despesasFiltradas.filter(d => d.mes == despesa.mes)
+        }
+
+        if(despesa.dia != '') {
+            console.log('filtro de dia')
+            despesasFiltradas = despesasFiltradas.filter(d => d.dia == despesa.dia)
+        }
+        
+        if(despesa.tipo != '') {
+            console.log('filtro de tipo')
+            despesasFiltradas = despesasFiltradas.filter(d => d.tipo == despesa.tipo)
+        }
+        
+        if(despesa.descricao != '') {
+            console.log('filtro de descricao')
+            despesasFiltradas = despesasFiltradas.filter(d => d.descricao == despesa.descricao)
+        }
+
+        if(despesa.valor != '') {
+            console.log('filtro de valor')
+            despesasFiltradas = despesasFiltradas.filter(d => d.valor == despesa.valor)
+        }
+        
+        return despesasFiltradas
+        
+    }
 }
 
 let bd = new Bd()
@@ -113,17 +151,18 @@ function modificaModalErro () {
    
 }
 
-function carregaListaDespesas() {
-    let despesas = Array()
-
-   despesas = bd.recuperarTodosRegistros()
+function carregaListaDespesas(despesas = Array(), filtro = false) {
+   if(despesas.length == 0 && filtro == false) {
+        despesas = bd.recuperarTodosRegistros()
+   }
+   
 
    //selecionando o elemento tbody da tabela
-   let listaDespesas = document.getElementById('lista-despesas')
+   let listaDespesas = document.getElementById('listaDespesas')
+   listaDespesas.innerHTML = ''
 
    //percorrer o array despesas de forma dinamica
    despesas.forEach(function(d){
-       console.log(d)
 
        //criando a linhas (tr)
        let linha = listaDespesas.insertRow()
@@ -146,10 +185,23 @@ function carregaListaDespesas() {
        linha.insertCell(1).innerHTML = d.tipo
        linha.insertCell(2).innerHTML = d.descricao
        linha.insertCell(3).innerHTML = d.valor
-    
-
-
    })
+}
+
+function consultarDespesas() {
+    let ano = document.getElementById('ano').value
+    let mes = document.getElementById('mes').value
+    let dia = document.getElementById('dia').value
+    let tipo = document.getElementById('tipo').value
+    let descricao = document.getElementById('descricao').value
+    let valor = document.getElementById('valor').value
+
+    let despesa = new Despesa(ano, mes, dia, tipo, descricao, valor)
+
+    let despesas = bd.pesquisar(despesa)
+
+    carregaListaDespesas(despesas, true)
+    
 }
 
 

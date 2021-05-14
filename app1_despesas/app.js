@@ -98,6 +98,13 @@ function modificaModalErro () {
    if(despesa.validarDados()) {
         bd.gravar(despesa)
         $('#modalRegistraDespesa').modal('show')
+
+        //limpa o campo após o envio dos dados
+        let a = ['ano', 'mes', 'dia', 'tipo', 'descricao', 'valor']
+        for(let i in a){
+           document.getElementById(a[i]).value = ''
+        }
+
         return modificaModalSucesso()
    } else {
        $('#modalRegistraDespesa').modal('show')

@@ -56,13 +56,32 @@ function cadastrarDespesa() {
 
    let despesa = new Despesa(ano.value, mes.value, dia.value, tipo.value, descricao.value, valor.value)
 
+   function modificaModalSucesso () {
+    document.getElementById('conteudo-modal').innerText = 'Dados registrado com Sucesso!'
+    document.getElementById('titulo-modal').className = 'modal-header text-success'
+    document.getElementById('titulo-modal').innerText = 'Dados Gravados com Sucesso!'
+    document.getElementById('botao-modal').innerText = 'Voltar'
+    document.getElementById('botao-modal').className = 'btn btn-success'
+}
+
+function modificaModalErro () {
+    document.getElementById('conteudo-modal').innerText = 'Dados invalidos, complete os campos.'
+    document.getElementById('botao-modal').innerText = 'Voltar e Corrigir'
+    document.getElementById('titulo-modal').innerText = 'Erro na Gravação!'
+    document.getElementById('titulo-modal').className = 'modal-header text-danger'
+    document.getElementById('botao-modal').className = 'btn btn-danger'
+}
+
    if(despesa.validarDados()) {
         bd.gravar(despesa)
-        console.log('Dados validos')
-        //sucesso
+        $('#modalRegistraDespesa').modal('show')
+        return modificaModalSucesso()
    } else {
-       console.log('Insira os dados')
+       $('#modalRegistraDespesa').modal('show')
+       return modificaModalErro()
    } 
    
 }
+
+
 
